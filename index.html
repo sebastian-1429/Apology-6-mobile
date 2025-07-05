@@ -2,69 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Crucial Mobile Viewport Tag -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <!-- Enhanced Mobile Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Love Apology | Digital Love Letters</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Universal Reset for Consistent Behavior */
+        /* Universal Reset */
         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
-            -webkit-text-size-adjust: 100%;
-            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
             touch-action: manipulation;
         }
         
-        /* Body Styles That Work on All Devices */
         body {
             font-family: 'Poppins', sans-serif;
             background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
             text-align: center;
-            margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             color: #fff;
             overflow-x: hidden;
-            position: relative;
-            /* iOS Safari Specific Fixes */
-            -webkit-overflow-scrolling: touch;
+            padding: 20px;
         }
 
-        /* Container That Scales Perfectly */
         .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px); /* For Safari */
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            width: 90%;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+            width: 100%;
             max-width: 600px;
-            margin: 20px auto;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
-            /* Prevent Mobile Zooming */
-            touch-action: pan-y;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Heart with Consistent Animation */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
         #heart {
             font-size: 80px;
-            margin: 30px 0;
+            margin: 20px 0;
             cursor: pointer;
             display: inline-block;
             text-shadow: 0 0 20px rgba(255, 107, 107, 0.7);
-            transition: all 0.3s;
             animation: pulse 1.5s infinite;
-            /* Fix for mobile hover states */
-            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Buttons That Work on Touch Devices */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
         .btn {
             background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
             color: white;
@@ -74,65 +74,71 @@
             border-radius: 50px;
             margin: 15px;
             box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-            position: relative;
-            /* Mobile-specific optimizations */
-            min-width: 150px;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 160px;
             -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
         }
 
-        /* No Button Escape Area - Mobile Optimized */
+        #yesBtn {
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        /* Enhanced Escape Area */
         .escape-area {
             position: relative;
             width: 100%;
             height: 70px;
             margin: 20px 0;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 35px;
             overflow: hidden;
-            /* Prevent touch interference */
             touch-action: none;
         }
 
-        /* No Button with Perfect Mobile Escape */
         #noBtn {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            transition: all 0.2s linear;
-            /* Larger tap target */
-            padding: 15px 30px;
-            width: auto;
-            /* Disable text selection */
+            transition: transform 0.2s ease-out;
+            background: linear-gradient(45deg, #f44336, #e57373);
+            box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
             user-select: none;
             -webkit-user-select: none;
+            padding: 15px 30px;
+            width: auto;
         }
 
-        /* Success Message Centered on All Devices */
+        /* Fixed Success Message */
         .success-message {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(135deg, #fff, #f9f9f9);
             padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             z-index: 1000;
-            width: 85%;
+            width: 90%;
             max-width: 400px;
             display: none;
-            /* Smooth appear animation */
             animation: fadeIn 0.5s ease-out;
         }
 
-        /* Keyframes for Animations */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        .success-message h2 {
+            color: #ff6b6b;
+            font-family: 'Dancing Script', cursive;
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .success-message p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         @keyframes fadeIn {
@@ -140,18 +146,71 @@
             to { opacity: 1; transform: translate(-50%, -50%); }
         }
 
-        /* Media Query for Very Small Devices */
-        @media (max-width: 400px) {
+        /* Enhanced Fireworks */
+        .firework {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: explode 1s ease-out forwards;
+            z-index: 100;
+            opacity: 0;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(0); opacity: 1; }
+            50% { opacity: 1; }
+            100% { transform: scale(20); opacity: 0; }
+        }
+
+        .firework-particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: particle 1.5s ease-out forwards;
+            z-index: 100;
+        }
+
+        @keyframes particle {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
             .container {
-                padding: 20px;
-                width: 95%;
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2.2rem;
             }
             #heart {
                 font-size: 70px;
             }
             .btn {
-                padding: 12px 30px;
+                padding: 14px 30px;
                 font-size: 1rem;
+                min-width: 140px;
+            }
+            .success-message {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            #heart {
+                font-size: 60px;
+            }
+            .btn {
+                padding: 12px 25px;
+                min-width: 120px;
             }
         }
     </style>
@@ -182,113 +241,141 @@
         </div>
     </div>
 
+    <!-- Fixed Success Message -->
     <div class="success-message" id="successMessage">
         <h2>Thank You, My Love!</h2>
-        <p>Thank you for accepting my apology. I promise to do better and cherish you every single day.</p>
-        <div style="font-size:60px; margin-top:20px;">🥰</div>
+        <p>Thank you for accepting my apology. I promise to do better and cherish you every moment of our lives together.</p>
+        <div style="font-size:60px; margin-top:20px; color: #ff6b6b;">🥰</div>
     </div>
 
     <script>
-        // Universal Touch/Mouse Event Handler
-        function handleNoButtonInteraction(e) {
-            e.preventDefault();
-            const escapeArea = document.querySelector('.escape-area');
-            const noBtn = document.getElementById('noBtn');
-            
-            const areaRect = escapeArea.getBoundingClientRect();
-            const btnRect = noBtn.getBoundingClientRect();
-            
-            // Calculate maximum possible positions
-            const maxX = areaRect.width - btnRect.width;
-            const maxY = areaRect.height - btnRect.height;
-            
-            // Generate random position within bounds
-            const newX = Math.random() * maxX;
-            const newY = Math.random() * maxY;
-            
-            // Apply new position with fast animation
-            noBtn.style.transition = 'all 0.2s linear';
-            noBtn.style.transform = `translate(${newX - maxX/2}px, ${newY - maxY/2}px)`;
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            // Get all elements
             const btn = document.getElementById("apologyBtn");
             const hiddenMsg = document.getElementById("hiddenMessage");
             const heart = document.getElementById("heart");
             const yesBtn = document.getElementById("yesBtn");
             const noBtn = document.getElementById("noBtn");
             const successMsg = document.getElementById("successMessage");
+            const escapeArea = document.querySelector(".escape-area");
             
-            // Heart click works on touch devices
+            // Initialize no button position
+            let noBtnX = 0;
+            let noBtnY = 0;
+            
+            // Heart click animation
             heart.addEventListener("click", function() {
                 this.style.transform = "scale(1.3)";
                 setTimeout(() => this.style.transform = "scale(1)", 300);
             });
 
-            // Apology reveal works universally
+            // Apology reveal
             btn.addEventListener("click", function() {
                 hiddenMsg.style.display = "block";
-                hiddenMsg.style.opacity = "1";
                 btn.textContent = "My Love For You";
             });
             
-            // No button escape works for both touch and mouse
-            noBtn.addEventListener("mouseenter", handleNoButtonInteraction);
-            noBtn.addEventListener("touchstart", handleNoButtonInteraction);
+            // Enhanced No button escape - works on touch devices
+            function moveNoButton() {
+                const areaWidth = escapeArea.offsetWidth - noBtn.offsetWidth;
+                const areaHeight = escapeArea.offsetHeight - noBtn.offsetHeight;
+                
+                // Calculate new position within bounds
+                noBtnX = Math.random() * areaWidth;
+                noBtnY = Math.random() * areaHeight;
+                
+                // Apply new position with fast animation
+                noBtn.style.transform = `translate(${noBtnX - areaWidth/2}px, ${noBtnY - areaHeight/2}px)`;
+                noBtn.style.transition = 'transform 0.15s linear';
+            }
             
-            // Yes button with success message
+            // Works for both mouse and touch
+            noBtn.addEventListener("mouseenter", moveNoButton);
+            noBtn.addEventListener("touchstart", function(e) {
+                e.preventDefault();
+                moveNoButton();
+            });
+            
+            // Yes button with enhanced fireworks
             yesBtn.addEventListener("click", function() {
+                // Show success message
                 successMsg.style.display = "block";
                 hiddenMsg.style.display = "none";
                 
                 // Create fireworks
                 createFireworks();
+                
+                // Continue fireworks for 5 seconds
+                const fireworkInterval = setInterval(createFireworks, 300);
+                setTimeout(() => clearInterval(fireworkInterval), 5000);
             });
             
-            // Fireworks that work on mobile
+            // Mobile-optimized fireworks
             function createFireworks() {
                 const colors = ['#ff0000', '#ff6600', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#ff00ff'];
                 
-                for (let i = 0; i < 15; i++) {
+                // Create 12-18 fireworks
+                const count = 12 + Math.floor(Math.random() * 7);
+                
+                for (let i = 0; i < count; i++) {
                     setTimeout(() => {
                         const xPos = Math.random() * window.innerWidth;
-                        const yPos = Math.random() * window.innerHeight * 0.6;
+                        const yPos = 50 + Math.random() * (window.innerHeight * 0.6);
                         const color = colors[Math.floor(Math.random() * colors.length)];
                         
-                        const firework = document.createElement('div');
-                        firework.style.position = 'fixed';
-                        firework.style.left = xPos + 'px';
-                        firework.style.top = yPos + 'px';
-                        firework.style.width = '6px';
-                        firework.style.height = '6px';
-                        firework.style.backgroundColor = color;
-                        firework.style.borderRadius = '50%';
-                        firework.style.boxShadow = `0 0 10px 2px ${color}`;
-                        firework.style.zIndex = '999';
-                        document.body.appendChild(firework);
+                        // Create explosion
+                        createExplosion(xPos, yPos, color);
                         
-                        // Animate with requestAnimationFrame for smoothness
-                        const start = Date.now();
-                        const duration = 1000;
-                        
-                        function animate() {
-                            const elapsed = Date.now() - start;
-                            const progress = elapsed / duration;
-                            const scale = progress * 15;
-                            
-                            if (progress < 1) {
-                                firework.style.transform = `scale(${scale})`;
-                                firework.style.opacity = `${1 - progress}`;
-                                requestAnimationFrame(animate);
-                            } else {
-                                firework.remove();
-                            }
+                        // 50% chance of secondary explosion
+                        if (Math.random() > 0.5) {
+                            setTimeout(() => {
+                                createExplosion(
+                                    xPos + (Math.random() - 0.5) * 50,
+                                    yPos + (Math.random() - 0.5) * 50,
+                                    color
+                                );
+                            }, 300);
                         }
-                        
-                        requestAnimationFrame(animate);
-                    }, i * 200);
+                    }, i * 150);
                 }
+            }
+            
+            function createExplosion(x, y, color) {
+                // Main explosion
+                const explosion = document.createElement('div');
+                explosion.className = 'firework';
+                explosion.style.left = x + 'px';
+                explosion.style.top = y + 'px';
+                explosion.style.boxShadow = `0 0 15px 3px ${color}`;
+                explosion.style.backgroundColor = color;
+                document.body.appendChild(explosion);
+                
+                // Create particles (more for mobile visibility)
+                for (let i = 0; i < 80; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'firework-particle';
+                    particle.style.left = x + 'px';
+                    particle.style.top = y + 'px';
+                    particle.style.backgroundColor = color;
+                    
+                    // Random direction and distance
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 15 + Math.random() * 35;
+                    const tx = Math.cos(angle) * distance;
+                    const ty = Math.sin(angle) * distance;
+                    
+                    particle.style.setProperty('--tx', tx + 'px');
+                    particle.style.setProperty('--ty', ty + 'px');
+                    
+                    // Random size
+                    const size = 3 + Math.random() * 4;
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+                    
+                    document.body.appendChild(particle);
+                    setTimeout(() => particle.remove(), 1500);
+                }
+                
+                setTimeout(() => explosion.remove(), 1000);
             }
         });
     </script>
